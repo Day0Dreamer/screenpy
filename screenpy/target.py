@@ -32,8 +32,8 @@ class Target:
     target_name: str
     locator: Union[None, Tuple[By, str]]
 
-    @staticmethod
-    def the(desc: str) -> "Target":
+    @classmethod # DAY
+    def the(cls, desc: str) -> "Target":
         """
         Provide a human-readable description. This method call should be
         followed up with a call to |Target.located_by|.
@@ -46,7 +46,7 @@ class Target:
         Returns:
             |Target|
         """
-        return Target(desc)
+        return cls(desc)
 
     def located(self, locator: Tuple[By, str]) -> "Target":
         """
