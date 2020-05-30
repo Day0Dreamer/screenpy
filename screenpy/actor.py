@@ -55,8 +55,8 @@ class Actor:
     name: str
     abilities: List[Ability]
 
-    @staticmethod
-    def named(name: Text) -> "Actor":
+    @classmethod
+    def named(cls, name: Text) -> "Actor":
         """
         Name this actor.
 
@@ -67,7 +67,7 @@ class Actor:
             |Actor|
         """
         aside(choice(ENTRANCE_DIRECTIONS).format(actor=name))
-        return Actor(name)
+        return cls(name)
 
     def who_can(self, *abilities: Ability) -> "Actor":
         """
